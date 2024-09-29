@@ -1,14 +1,75 @@
-# Template: SolidJS Library
+# μPlot Solid
 
-Template for [SolidJS](https://www.solidjs.com/) library package. Bundling of the library is managed by [tsup](https://tsup.egoist.dev/).
+Solid wrapper around [μPlot](https://github.com/leeoniya/uPlot?tab=readme-ov-file#-%CE%BCplot) which is a small, fast and performant 2D canvas based chart for time series, lines, areas, ohlc & bars. It exposes the μPlot API in a fully typed, declarative JSX format and does the work to make the μPlot experience as reactive as possible.
 
-Other things configured include:
+Once a μPlot instance is made, the component will **not** recreate a new instance even if the `data` or `size` of the chart updates reactively. However, it will create a new chart instance if any other options are reactively updated when using it (e.g. `series`, `hooks`, `plugins`, etc.).
 
-- Bun (for dependency management and running scripts)
-- TypeScript
-- ESLint / Prettier
-- Solid Testing Library + Vitest (for testing)
-- GitHub Actions (for all CI/CD)
+## Installing
+
+Both `solid-js` and `uplot` are peer dependencies of `uplot-solid`.
+
+```bash
+npm install solid-js uplot uplot-solid
+pnpm add solid-js uplot uplot-solid
+yarn add solid-js uplot uplot-solid
+bun add solid-js uplot uplot-solid
+```
+
+## Overview
+
+If you are new to μPlot, here is a quick breakdown of some things using a simple example plot:
+
+```tsx
+import UplotSolid from "uplot-solid"
+
+<UplotSolid
+  width={1000}
+  height={300}
+  data={[
+    [], // x-series data
+    [], // y-series-1 data
+    [], // y-series-2 data
+    // etc...
+  ]}
+  series={[
+    {
+      label: "Time",
+      stroke: "green",
+    },
+    {
+      label: "Y Series 1",
+      stroke: "blue",
+    },
+    {
+      label: "Y Series 2",
+      stroke: "red",
+    },
+    // etc...
+  ]}
+/>
+```
+
+The above is the minimum of what you need to get a chart on screen given you have filled in the data. The expected format of `data` is a 2D array where the first array is the dataset for the x-series of the plot. The `series` list follows the same ordering being a list of config objects where the first object applies to the x-series and the rest to the y-series. μPlot supports a single x-series and all the y-series share the same x-series data. There are many more fields within the series struct that you can configure to tailor the display of the series data to your liking.
+
+Here are some other key options within the API to familiarize yourself with:
+
+- `hooks`: An object structure exposing key events that occur within μPlot. Every event hook accepts an **array of callbacks** allowing you to have discrete units of work that occur within a single event.
+- `plugins`: A **plugin** is used to extend or modify the behavior of the chart by injecting custom functionality. You can hook into the various lifecycle events (the very same ones exposed from the `hooks` property) and add custom behavior, such as drawing on the canvas, adding custom controls, tooltips, interactions, or integrating with external libraries.
+
+### Why Use Plugins Instead of Hooks?
+
+In a nutshell, separation of concerns. Here are some points:
+
+- **Customization**: Add custom drawings (like annotations, lines, or custom tooltips).
+- **Modularity**: Keep the core logic of the chart clean and separate from specific custom behavior.
+- **Reusability**: Create reusable plugins that can be applied across multiple uPlot instances with consistent functionality.
+- **Extensibility**: Augment the chart with additional features (e.g., zoom controls, data overlays).
+
+### Demos
+
+Be sure to check out the [μPlot demos](https://leeoniya.github.io/uPlot/demos/index.html) to see the many kinds of different charts you can create. The code for the demos can be found [here](https://github.com/leeoniya/uPlot/tree/master/demos).
+
+Over time, I will try to add example demos using this library to showcase some simple and more complex examples (e.g. creating custom tooltips either via `plugins` or using Solid directly)
 
 ## Getting Started
 

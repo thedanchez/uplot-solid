@@ -1,3 +1,4 @@
+import inlineCssModules from "esbuild-css-modules-plugin";
 import { defineConfig } from "tsup";
 import * as preset from "tsup-preset-solid";
 
@@ -6,12 +7,11 @@ const generateSolidPresetOptions = (watching: boolean): preset.PresetOptions => 
     {
       // entries with '.tsx' extension will have `solid` export condition generated
       entry: "src/index.tsx",
-      dev_entry: false,
-      server_entry: true,
     },
   ],
   drop_console: !watching, // remove all `console.*` calls and `debugger` statements in prod builds
   cjs: false,
+  esbuild_plugins: [inlineCssModules()],
 });
 
 export default defineConfig((config) => {
@@ -28,7 +28,7 @@ export default defineConfig((config) => {
 
   const tsupOptions = preset
     .generateTsupOptions(parsedOptions)
-    .map((tsupOption) => ({ name: "solid-js", ...tsupOption }));
+    .map((tsupOption) => ({ name: "uplot-solid", ...tsupOption }));
 
   return tsupOptions;
 });
