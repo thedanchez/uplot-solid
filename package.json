@@ -1,6 +1,6 @@
 {
   "name": "uplot-solid",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Solid wrapper for μPlot",
   "type": "module",
   "author": "Daniel Sanchez <dsanc89@icloud.com>",
@@ -38,6 +38,7 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.8",
     "@solidjs/testing-library": "^0.8.10",
     "@testing-library/jest-dom": "^6.5.0",
     "@types/bun": "^1.1.10",
