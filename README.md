@@ -20,7 +20,7 @@ bun add solid-js uplot uplot-solid
 If you are new to μPlot, here is a quick breakdown of some things using a simple example plot:
 
 ```tsx
-import UplotSolid from "uplot-solid"
+import UplotSolid from "uplot-solid";
 
 <UplotSolid
   width={1000}
@@ -46,7 +46,7 @@ import UplotSolid from "uplot-solid"
     },
     // etc...
   ]}
-/>
+/>;
 ```
 
 The above is the minimum of what you need to get a chart on screen given you have filled in the data. The expected format of `data` is a 2D array where the first array is the dataset for the x-series of the plot. The `series` list follows the same ordering being a list of config objects where the first object applies to the x-series and the rest to the y-series. μPlot supports a single x-series and all the y-series share the same x-series data. There are many more fields within the series struct that you can configure to tailor the display of the series data to your liking.

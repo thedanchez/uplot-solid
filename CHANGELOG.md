@@ -7,7 +7,7 @@
 - Initial release of `uplot-solid` making μPlot available for SolidJS applications.
 
 ```tsx
-import UplotSolid from "uplot-solid"
+import UplotSolid from "uplot-solid";
 
 <UplotSolid
   width={1000}
@@ -33,5 +33,5 @@ import UplotSolid from "uplot-solid"
     },
     // etc...
   ]}
-/>
+/>;
 ```
