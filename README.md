@@ -1,3 +1,9 @@
+<p>
+  <img width="100%" src="https://assets.solidjs.com/banner?type=Ecosystem&background=tiles&project=uplot-solid" alt="uplot-solid">
+</p>
+
+[![NPM Version](https://img.shields.io/npm/v/uplot-solid.svg?style=for-the-badge)](https://www.npmjs.com/package/uplot-solid) [![Build Status](https://img.shields.io/github/actions/workflow/status/thedanchez/uplot-solid/ci.yaml?branch=main&logo=github&style=for-the-badge)](https://github.com/thedanchez/uplot-solid/actions/workflows/ci.yaml) [![bun](https://img.shields.io/badge/maintained%20with-bun-cc00ff.svg?style=for-the-badge&logo=bun)](https://bun.sh/)
+
 # μPlot Solid
 
 Solid wrapper around [μPlot](https://github.com/leeoniya/uPlot?tab=readme-ov-file#-%CE%BCplot) which is a small, fast and performant 2D canvas based chart for time series, lines, areas, ohlc & bars. It exposes the μPlot API in a fully typed, declarative JSX format and does the work to make the μPlot experience as reactive as possible.
